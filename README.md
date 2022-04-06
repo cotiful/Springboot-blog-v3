@@ -15,3 +15,6 @@ CREATE USER 'green'@'%' IDENTIFIED BY 'green1234';
 CREATE DATABASE greendb;
 GRANT ALL PRIVILEGES ON greendb.* TO 'green'@'%';
 ```
+
+### 3. 에디터
+- 
