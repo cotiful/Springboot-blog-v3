@@ -15,6 +15,14 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 public class User {
@@ -26,7 +34,7 @@ public class User {
     private String username;
 
     // 비밀번호: 1234 -> SH256(해시 알고리즘)사용하면 -> AB2342343AE -> 이렇게 안하면 시큐리티 거부
-    @Column(length = 20, nullable = false)
+    @Column(length = 100, nullable = false)
     private String password;
 
     @Column(length = 20, nullable = false)
