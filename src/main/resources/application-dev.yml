@@ -9,6 +9,18 @@ server:
       timeout: 300
 
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 아이디
+    password: 비밀번호
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
   security:
     user:
       name: test
