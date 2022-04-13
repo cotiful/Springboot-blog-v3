@@ -1,5 +1,6 @@
 package site.metacoding.blogv3.config;
 
+import org.springframework.boot.devtools.restart.FailureHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,7 +28,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/loginForm")
+                // .usernameParameter("userId")
+                // .passwordParameter("pwed")
+                .loginPage("/login-form")
+                .loginProcessingUrl("/login") // login 프로세스를 탄다.
+                // .failureHandler(null)
+                // .successHandler(null)
                 .defaultSuccessUrl("/");
     }
 }

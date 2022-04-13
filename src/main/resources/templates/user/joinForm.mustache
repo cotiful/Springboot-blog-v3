@@ -4,7 +4,7 @@
   <div class="my_auth_box">
       <div class="my_auth_form_box">
           <div class="my_auth_form_box_title">Designed By YSH</div>
-          <form action="/join" method="post">
+          <form action="/join" method="post" onsubmit="passwordCheck()">
               <input class="my_auth_form_box_input" type="text" name="username" placeholder="아이디" maxlength="20" required/>
               <input class="my_auth_form_box_input" type="password" name="password" placeholder="비밀번호" maxlength="20" required/>
               <input class="my_auth_form_box_input" type="password" name="" placeholder="비밀번호 확인" maxlength="20" required/>
@@ -18,5 +18,11 @@
       </div>
   </div>
 </div>
+
+<script>
+    function passwordCheck(){
+        alert("나 실행됨");
+    }
+</script>
 
 {{>/layout/footer}}
