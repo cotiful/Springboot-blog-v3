@@ -1,5 +1,8 @@
 package site.metacoding.blogv3.service;
 
+import java.util.Optional;
+
+import org.hibernate.internal.util.beans.BeanInfoHelper.ReturningBeanInfoDelegate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,5 +25,14 @@ public class UserService {
         user.setPassword(encPassword);
 
         userRepository.save(user);
+    }
+
+    public boolean 유저네임중복검사(String username) {
+        Optional<User> userOp = userRepository.findByUsername(username);
+        if (userOp.isPresent()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

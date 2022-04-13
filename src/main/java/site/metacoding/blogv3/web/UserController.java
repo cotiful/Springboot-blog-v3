@@ -6,11 +6,15 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.hibernate.internal.util.beans.BeanInfoHelper.ReturningBeanInfoDelegate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.blogv3.handler.ex.CustomException;
@@ -22,6 +26,12 @@ import site.metacoding.blogv3.web.dto.user.JoinReqDto;
 public class UserController {
 
     private final UserService userService;
+
+    @GetMapping("/api/user/username-same-check")
+    public ResponseEntity<?> usernameSameCheck(String username) {
+        boolean isNotSame = userService.유저네임중복검사(username); // true(같지 않다)
+        return new ResponseEntity<>(isNotSame, HttpStatus.OK);
+    }
 
     @GetMapping("/login-form")
     public String loginForm() {

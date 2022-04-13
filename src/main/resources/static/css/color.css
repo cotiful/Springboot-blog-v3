@@ -18,3 +18,7 @@
     color: rgb(25, 25, 25);
     font-size: 30px;
 }
+
+.m_bg_error{
+    background-color: rgb(250, 200, 200);
+}

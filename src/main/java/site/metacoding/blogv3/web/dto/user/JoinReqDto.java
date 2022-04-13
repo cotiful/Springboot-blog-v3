@@ -16,7 +16,7 @@ import site.metacoding.blogv3.domain.user.User;
 public class JoinReqDto {
 
     // 들어올 때 알아서 사이즈 해줌.
-    @Pattern(regexp = "[a-zA-Z1-9]{4,20}", message = "유저네임은 한글 못들어가유~")
+    @Pattern(regexp = "[a-zA-Z1-9]{4,20}", message = "유저네임은 한글이 들어갈 수 없습니다.")
     @NotBlank
     private String username;
 
