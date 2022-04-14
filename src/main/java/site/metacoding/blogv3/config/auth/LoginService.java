@@ -28,9 +28,8 @@ public class LoginService implements UserDetailsService {
         if (userOp.isPresent()) {
             // return null; // return 하면 principal 안으로 들어가는데 null 이면 인증이 안됨.
             return new LoginUser(userOp.get());
-        } else {
-            throw new CustomException("유저네임 없음");
         }
+        return null;
 
     }
 

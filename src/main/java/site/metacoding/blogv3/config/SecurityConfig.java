@@ -1,12 +1,13 @@
 package site.metacoding.blogv3.config;
 
-import org.springframework.boot.devtools.restart.FailureHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import site.metacoding.blogv3.handler.LoginSuccessHandler;
 
 @EnableWebSecurity // 해당 파일로 시큐리티 활성화
 @Configuration
@@ -33,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login-form")
                 .loginProcessingUrl("/login") // login 프로세스를 탄다.
                 // .failureHandler(null)
-                // .successHandler(null)
-                .defaultSuccessUrl("/");
+                .successHandler(new LoginSuccessHandler());
+
     }
 }
