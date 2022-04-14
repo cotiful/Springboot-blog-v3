@@ -11,13 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.blogv3.handler.ex.CustomException;
 import site.metacoding.blogv3.service.UserService;
 import site.metacoding.blogv3.util.UtilValid;
-import site.metacoding.blogv3.util.email.EmailUtil;
 import site.metacoding.blogv3.web.dto.user.JoinReqDto;
 import site.metacoding.blogv3.web.dto.user.PasswordResetReqDto;
 
@@ -26,6 +25,11 @@ import site.metacoding.blogv3.web.dto.user.PasswordResetReqDto;
 public class UserController {
 
     private final UserService userService;
+
+    @GetMapping("/user/{id}")
+    public String updateForm(@PathVariable Integer id) {
+        return "/user/updateForm";
+    }
 
     @GetMapping("/user/password-reset-form")
     public String passwordResetForm() {
